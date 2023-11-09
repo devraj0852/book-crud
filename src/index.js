@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan')
 const bodyParser = require('body-parser');
 const routes = require('../src/routes')
 
+const port = 7000
 
 const app = express();
-const port = 7000
+app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use('/',routes)
 
